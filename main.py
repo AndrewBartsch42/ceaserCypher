@@ -17,12 +17,20 @@ for i in range (50):
     new_string = random_strings[i]
     if LorR == 1:
         for j in range(7):
-            new_string = new_string.replace(new_string[j - 1], "1")
+            indexOfRSH = right_shifted_characters[characters.index(new_string[j-1])]
+            new_string = new_string.replace(new_string[j - 1], indexOfRSH)
     else:
         for j in range(7):
-            new_string = new_string.replace(new_string[j - 1], "1")
+            indexOfLSH = left_shifted_characters[characters.index(new_string[j-1])]
+            new_string = new_string.replace(new_string[j - 1], indexOfLSH)
     random_strings_encoded.append(new_string)
+    if LorR == 1:
+        leftorright = "right"
+    else:
+        leftorright = "left"
     print("This is the shift value: "  + str(shift_value))
-    print("Left or Right: " + str(LorR))
+    print("Left or Right: " + leftorright)
+    print("This is the old string: " + random_strings[i])
     print("This is the new string: " + new_string)
+    print("\n")
 
